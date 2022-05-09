@@ -1,0 +1,48 @@
+<span>Auto Complete Input</span>
+<br />
+<p-autoComplete
+  [(ngModel)]="text"
+  [suggestions]="results"
+  (completeMethod)="search($event)"
+></p-autoComplete>
+<hr />
+<span>Calendar</span>
+<br />
+<p-calendar
+  [(ngModel)]="value"
+  (click)="onClickCalendar()"
+  [inline]="true"
+></p-calendar>
+<p-calendar
+  [(ngModel)]="value"
+  (click)="onClickCalendar()"
+  [inline]="false"
+  placeholder="choose a date"
+></p-calendar>
+<hr />
+<span [ngStyle]="{ 'background-color': color }">Color Picker</span>
+<br />
+<p-colorPicker
+  [(ngModel)]="color"
+  [inline]="true"
+  (click)="onClickColorPicker()"
+></p-colorPicker>
+<hr />
+<span>Password Inside Reactive Form</span>
+<br />
+<form [formGroup]="inputFormGroup" (submit)="onSubmit()">
+  <p-password [formControlName]="'password'"></p-password>
+</form>
+<hr />
+<span>Multiple Select</span>
+<br />
+<p-multiSelect
+  [options]="cities"
+  [(ngModel)]="selectedCityCodes"
+  optionLabel="name"
+  optionValue="code"
+  placeholder="Select Multiple"
+  (click)="onClickMultiSelect()"
+></p-multiSelect>
+<span *ngIf="selectedCityCodes">{{ selectedCityCodes }}</span>
+<hr />
